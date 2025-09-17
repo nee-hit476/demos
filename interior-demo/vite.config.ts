@@ -7,4 +7,13 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  server: {
+    proxy: {
+      'https://images.pexels.com': {
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/pexels/, '')
+      }
+    }
+  }
+
 });
